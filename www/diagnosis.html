@@ -1,0 +1,17 @@
+
+<div>
+  <h2>Avatar List</h2>
+<p>An example of how to create an avatar list:</p>
+
+<ul class="w3-ul w3-card-4">
+  <li ng-repeat="pat in patients" class="w3-padding-16">
+    <a ui-sref="user"
+    class="w3-closebtn w3-padding w3-margin-right w3-medium">GO</a>
+    <!-- <a ui-sref="user"  class="button" style="background-color: rgb(244,32,67);" >Add New User</a -->
+    <img src="img/img_avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+    <span class="w3-xlarge">{{pat.name}}</span><br>
+    <span>{{pat.username}}</span>
+  </li>
+
+</ul>
+</div>

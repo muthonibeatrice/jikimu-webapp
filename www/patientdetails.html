@@ -1,0 +1,96 @@
+<style>
+.shadow {
+   -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
+.shadow .content {
+    position: relative; /* This protects the inner element from being blurred */
+    padding: 100px;
+    background-color: #DDD;
+    border-radius: 40px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: rgb(31,32,55);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(31,32,55);
+}
+/*#wrapper {
+    width: 500px;
+    margin: 20px auto;
+}*/
+</style>
+  <div class="shadow">
+    <div class ="content">
+
+            <p>
+        Name <!-- <input style="text-align:centre" type="text" class="" ng-model="patient.name"> -->
+             
+            </p>
+        <!--    <p>
+        Username <input style="text-align:centre" type="text" class="" ng-model="patient.email">
+             
+            </p> -->
+            <p>
+              Age <input style="text-align:centre" type="text" class="" ng-model="patient.age">     
+            </p>
+             <p>
+        Doctor Name <input style="text-align:centre" type="text" class="" ng-model="patient.docname">
+             
+            </p>
+            <div>
+            <p>
+              Expected date  <b>{{duration | date:'longDate'}}</b>
+            </p>
+          </div>
+            <div >
+              Result from Last test
+               <p style="color:{{risk.color}}">{{risk.text}} </p>
+         
+            </div>
+            <p>
+        Name <input style="text-align:centre" type="date" class="" ng-model="patient.birthday">
+             
+            </p>
+    </div>
+    
+  </div>
+   <div style ="border-radius: 5px;background-color: #f2f2f2; padding: 60px;">
+                    <form style="" ng-submit="submitlab()" class="list" ng-controller="labCtrl">
+                      <label for="fname">Blood Pressure</label>
+                      <input type="text" id="urine_test" name="urine_test" placeholder=""  required="" ng-model="lab.bp">
+
+                      <label for="lname">Weight</label>
+                      <input type="text" id="weight" name="weight" required="" ng-model="lab.weight">
+
+                      <label for="lname">Urine</label>
+                      <input type="text" id="weight" name="urine" required="" ng-model="lab.urine">
+                      <label for="lname"></label>
+                      <input type="hidden" id="weight" name="patient_id" required="" ng-model="lab.patientId">
+
+                     <!--  <label for="country">Blood pressure</label>
+                       <input type="text" id="bloodpressure" name="bloodpressure" required="" ng-model="lab.bloodpressure"> -->
+                    
+                      <input type="submit" value="Submit">
+                    </form>
+    </div>

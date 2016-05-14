@@ -1,0 +1,94 @@
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=date], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/*input[type=submit] {
+    width: 100%;
+    background-color: rgb(31,32,55);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;s
+    border-radius: 4px;
+    cursor: pointer;
+}
+*/
+input[type=submit]:hover {
+    background-color: rgb(31,32,55);
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+/*div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 60px;
+}*/
+</style>
+    <div style ="border-radius: 5px;background-color: #f2f2f2; padding: 60px;">
+                    <form style="" ng-submit="submituser()" class="list" ng-controller="userCtrl">
+                      <label for="fname">Name</label>
+                      <input type="text" id="urine_test" name="urine_test" placeholder=""  required="" ng-model="usera.name">
+
+                      <label for="lname">Username</label>
+                      <input type="text" id="weight" name="weight" required="" ng-model="user.email">
+
+                      <label for="lname">Date of Birth</label>
+                      <input type="date" id="weight" name="weight" required="" ng-model="usera.birthday">
+
+                      <label for="lname">Doctor's Name</label>
+                      <input type="text" id="weight" name="weight" required="" ng-model="usera.docname">
+
+                      <label for="lname">Password</label>
+                      <input type="password" id="weight" name="weight" required="" ng-model="user.password">
+
+                      <label for="lname">Confirm Password</label>
+                      <input type="password" id="weight" name="weight" required="" ng-model="cpassword">
+
+
+
+
+
+
+
+                     <!--  <label for="country">Blood pressure</label>
+                       <input type="text" id="bloodpressure" name="bloodpressure" required="" ng-model="lab.bloodpressure"> -->
+                    
+                      <input type="submit" value="Submit"  class="button" style="background-color: rgb(31,32,55);">
+                   <!--    <a href="user.html" class="button" style="background-color: rgb(244,32,67);" >Add New User</a -->
+                    </form>
+    </div>
