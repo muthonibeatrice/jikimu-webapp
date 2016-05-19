@@ -1,35 +1,82 @@
  <style>
 .shadow {
-   -moz-box-shadow:    inset 0 0 10px #000000;
+  -moz-box-shadow:   1px 2px 4px 2px #ccc;
+  -webkit-box-shadow:1px 2px 4px 2px #ccc;
+  box-shadow:        1px 2px 4px 2px #ccc;
+ /*  -moz-box-shadow:    inset 0 0 10px #000000;
    -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;*/
+   width: 85%;
 }
 .shadow .content {
-    position: relative; /* This protects the inner element from being blurred */
+  /*  position: relative;*/  /*This protects the inner element from being blurred */
     padding: 100px;
     background-color: #DDD;
-    border-radius: 40px;
+    border-radius: 3px;
+  
 }
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+input[type=submit] {
+    width: 100%;
+    background-color: rgb(31,32,55);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(31,32,55);
+}
+/*#wrapper {
+    width: 500px;
+    margin: 20px auto;
+}*/
 </style>
+<div class="main-content container-fluid">
+  <div class = "container " >
+      <div class = "jumbotron form-group" style= "width: 85%; height: 10%; background-color:rgb(26,32,39)">
+          <center><h1> LAB RESULTS</h1>
+          <p> </p>
+    </div>
   <div class="shadow">
     <div class ="content">
 
-            <p>
-        Name <!-- <input style="text-align:centre" type="text" class="" ng-model="patient.name"> -->
-             
-            </p>
+
+
+
+
         <!--    <p>
         Username <input style="text-align:centre" type="text" class="" ng-model="patient.email">
              
             </p> -->
             <p>
-              Age <input style="text-align:centre" type="text" class="" ng-model="results.bp">     
+              Blood Pressure <input style="text-align:centre" type="text" class="" ng-model="results.bp">     
             </p>
+
              <p>
-        Doctor Name <input style="text-align:centre" type="text" class="" ng-model="results.urine">
+            Weight <input style="text-align:centre" type="text" class="" ng-model="results.weight">
              
             </p>
-            <div>
+
+             <p>
+            Urine <input style="text-align:centre" type="text" class="" ng-model="results.urine">
+             
+            </p>
+           <!--  <div>
             <p>
               Expected date  <b>{{duration | date:'longDate'}}</b>
             </p>
@@ -42,5 +89,7 @@
             <p>
         Name <input style="text-align:centre" type="date" class="" ng-model="patient.birthday">
              
-            </p>
+            </p> -->
     </div>
+  </div>
+</div>

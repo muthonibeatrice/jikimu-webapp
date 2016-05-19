@@ -59,19 +59,35 @@ input[type=submit]:hover {
     padding: 60px;
 }*/
 </style>
-<div class="main-content container-fluid" ng-controller="loginCtrl">
-    <div style ="margin-left: -230px; border-radius: 5px;background-color: #f2f2f2; padding: 60px;">
-                    <div style="" class="list" >
+<div class="main-content container-fluid">
+ <div class = "jumbotron form-group" style= "width: 85%; height: 10%; background-color:rgb(26,32,39)">
+          <center><h1> NEW USER</h1>
+          <p> </p>
+    </div>
+    <div style ="border-radius: 5px;background-color: #f2f2f2; padding: 60px;">
+                    <form style="" ng-submit="register()" class="list" ng-controller="registerCtrl">
                       <label for="fname">Name</label>
-                      <input type="text" id="urine_test" name="email" name="urine_test" placeholder=""  required="" ng-model="data.email">
+                      <input type="text" id="urine_test" name="urine_test" placeholder=""  required="" ng-model="registera.name">
 
-      
+                      <label for="lname">Username</label>
+                      <input type="text" id="weight" name="weight" required="" ng-model="register.email">
 
-                      <label for="lname">Password</label>
-                      <input type="password"  name="password"  ng-model="data.password">
-
-                      
                      
+
+                      <label for="lname">occupation</label>
+                      <select ng-model="registera.occupation">
+                        <option value="Nurse">Nurse</option>
+                        <option value="Doctor">Doctor</option>
+                        <option value="Government">Government</option>
+                        <option value="Admin">Admin</option>
+                        </select>
+                      <label for="lname">Password</label>
+                      <input type="password" id="weight" name="weight" required="" ng-model="register.password">
+
+                      <label for="lname">Confirm Password</label>
+                      <input type="password" id="weight" name="weight" required="" ng-model="cpassword">
+
+
 
 
 
@@ -80,9 +96,9 @@ input[type=submit]:hover {
                      <!--  <label for="country">Blood pressure</label>
                        <input type="text" id="bloodpressure" name="bloodpressure" required="" ng-model="lab.bloodpressure"> -->
                     
-                      <a   class="button" ng-click="login()" style="background-color: rgb(31,32,55);">Login</a>
-                      <a href="#/registration"  class="button" style="background-color: rgb(244,32,67);" >Register</a>
+                      <input type="submit" value="Submit"  class="button" style="background-color: rgb(31,32,55);">
+                        
                    <!--    <a href="user.html" class="button" style="background-color: rgb(244,32,67);" >Add New User</a -->
-                    </div>
+                    </form>
     </div>
 </div>

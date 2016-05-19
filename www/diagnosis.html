@@ -1,17 +1,169 @@
 
-<div>
-  <h2>Avatar List</h2>
-<p>An example of how to create an avatar list:</p>
+<style>
+.shadow {
+   -moz-box-shadow:   1px 2px 4px 2px #ccc;
+  -webkit-box-shadow:1px 2px 4px 2px #ccc;
+  box-shadow:        1px 2px 4px 2px #ccc;
+ /*  -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;*/
+   width: 85%;
+}
+.shadow .content {
+    position: relative; /* This protects the inner element from being blurred */
+    padding: 100px;
+    background-color: #DDD;
+    /*border-radius: 40px*/;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=date], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/*input[type=submit] {
+    width: 100%;
+    background-color: rgb(31,32,55);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;s
+    border-radius: 4px;
+    cursor: pointer;
+}
+*/
+input[type=submit]:hover {
+    background-color: rgb(31,32,55);
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+/*div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 60px;
+}*/
+</style>
+<div class="main-content container-fluid">
 
-<ul class="w3-ul w3-card-4">
-  <li ng-repeat="pat in patients" class="w3-padding-16">
-    <a ui-sref="user"
-    class="w3-closebtn w3-padding w3-margin-right w3-medium">GO</a>
+      <div class = "jumbotron form-group" style= "width: 85%; height: 10%; background-color:rgb(26,32,39)">
+            <center><h1> DIAGNOSIS</h1>
+
+            <p> I am a {{$root.occupation}} </p>
+      </div>
+      <div class="shadow">
+        <div class ="content">
+          <p style="margin-top:10px;"><h2>  Current Lab Results</h2></p>
+            <ul >
+                <li class="card">
+                 <span class="card-details"> Blood Pressure {{results.highbp}}/{{results.lowbp}} </span> </br>  
+                
+
+                 
+                <br><span class="card-details">Weight {{results.weight}}</span></br>
+                 
+               
+               <br><span class="card-details"> Urine {{results.urine}}</span></br>
+            
+                <div ng-if="g" class="alert alert-danger">
+                  <strong>Warning</strong> The patients risks hypertension
+                </div>
+              </li>
+            </ul>                    
+        
+      </div>
+
+        <div class="row" style ="width:50%; height: 50%">
+           <p style="margin-top:10px;"><h2> Monitored Data</h2></p>
+        </div>
+        <div class="row"> 
+        <div class="col-sm-6"> <highchart id="chart1" config="highchartsNG"></highchart></div>
+        <div class="col-sm-6"> <highchart  id="chart1" config="highchartsbp"></highchart>
+        </div></div>
+       
+       
+        
+    <div class="shadow">
+      <div class ="content">
+   
+          
+        <div style ="border-radius: 5px;background-color: #f2f2f2; padding: 60px;">
+              <form style="" ng-submit="diagnosissubmit()" class="list" ng-controller="diagnosisCtrl">
+                 <label for="lname">Hypertensive?</label>
+                      <select ng-model="diagnosis.hyper">
+                        <option value="No">No</option>
+                        <option value="yes">Yes</option>
+                        
+                        </select>
+                <label for="fname">medicine</label>
+                <input type="text" id="urine_test" name="urine_test" placeholder=""  required="" ng-model="diagnosis.med">
+
+                 <label for="fname">Dose</label>
+                <input type="text" id="urine_test" name="urine_test" placeholder=""  required="" ng-model="diagnosis.dose">
+
+                <br><label for="fname">General Advice</label></br>
+                <textarea rows="4" cols="30" name="comment" form="usrform" ng-model="diagnosis.advice" placeholder="Enter text here..."></textarea>
+
+          
+              <br>
+                <input type="submit" value="Submit"  class="button" style="background-color: rgb(31,32,55);">
+              </br>
+             <!--    <a href="user.html" class="button" style="background-color: rgb(244,32,67);" >Add New User</a -->
+              </form>
+        </div>
+      </div>  
+    </div>
+  </div>
+
+   
+<ul class="patient-list">
+<div ng-if="patients.length == 0"><h1>Loading...</h1></div>
+  <li ng-repeat="pat in patients" class="card">
+    <div ng-click="diagnose(pat.id)"
+    class="card-action">Diagnose</div>
     <!-- <a ui-sref="user"  class="button" style="background-color: rgb(244,32,67);" >Add New User</a -->
-    <img src="img/img_avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
-    <span class="w3-xlarge">{{pat.name}}</span><br>
-    <span>{{pat.username}}</span>
+    <img src="img/img_avatar5.png" class="avatar">
+    <span class="w3-xlarge"><b>{{pat.name}}</b></span><br>
+    <span class="card-details">{{pat.docname}}</span>
   </li>
 
 </ul>
-</div>

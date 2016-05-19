@@ -1,14 +1,18 @@
 <style>
 .shadow {
-   -moz-box-shadow:    inset 0 0 10px #000000;
+   -moz-box-shadow:   1px 2px 4px 2px #ccc;
+  -webkit-box-shadow:1px 2px 4px 2px #ccc;
+  box-shadow:        1px 2px 4px 2px #ccc;
+ /*  -moz-box-shadow:    inset 0 0 10px #000000;
    -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;*/
+   width: 85%;
 }
 .shadow .content {
     position: relative; /* This protects the inner element from being blurred */
     padding: 100px;
     background-color: #DDD;
-    border-radius: 40px;
+    border-radius: 3px;
 }
 
 input[type=text], select {
@@ -20,6 +24,7 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
 
 input[type=submit] {
     width: 100%;
@@ -40,11 +45,18 @@ input[type=submit]:hover {
     margin: 20px auto;
 }*/
 </style>
+<div class="main-content container-fluid">
+<div class = "jumbotron form-group" style= "width: 85%; height: 5%; background-color:rgb(26,32,39)">
+          <center><h1> PATIENT DETAILS</h1>
+          {{occupation}}
+          <p> </p>
+    </div>
   <div class="shadow">
     <div class ="content">
+            
 
             <p>
-        Name <!-- <input style="text-align:centre" type="text" class="" ng-model="patient.name"> -->
+        Name <input style="text-align:centre" type="text" class="" ng-model="patient.name">
              
             </p>
         <!--    <p>
@@ -58,7 +70,7 @@ input[type=submit]:hover {
         Doctor Name <input style="text-align:centre" type="text" class="" ng-model="patient.docname">
              
             </p>
-            <div>
+           <!--  <div>
             <p>
               Expected date  <b>{{duration | date:'longDate'}}</b>
             </p>
@@ -71,14 +83,23 @@ input[type=submit]:hover {
             <p>
         Name <input style="text-align:centre" type="date" class="" ng-model="patient.birthday">
              
-            </p>
+            </p> -->
     </div>
     
   </div>
+  <div class="row" style ="width:50%; height: 50%">
+    <p> </p>
+  </div>
+
+  <div class="shadow">
+    <div class ="content">
+      <p style="margin-top:10px;"><h2> Lab Test Form</h2></p>
    <div style ="border-radius: 5px;background-color: #f2f2f2; padding: 60px;">
                     <form style="" ng-submit="submitlab()" class="list" ng-controller="labCtrl">
-                      <label for="fname">Blood Pressure</label>
-                      <input type="text" id="urine_test" name="urine_test" placeholder=""  required="" ng-model="lab.bp">
+                      <label for="fname">systolic Blood Pressure</label>
+                      <input type="text" id="urine_test" name="urine_test" placeholder=""  required="" ng-model="lab.highbp">
+                        <label for="fname">Dystolic Blood Pressure</label>
+                      <input type="text" id="urine_test" name="urine_test" placeholder=""  required="" ng-model="lab.lowbp">
 
                       <label for="lname">Weight</label>
                       <input type="text" id="weight" name="weight" required="" ng-model="lab.weight">
@@ -94,3 +115,6 @@ input[type=submit]:hover {
                       <input type="submit" value="Submit">
                     </form>
     </div>
+  </div>
+</div>
+</div>

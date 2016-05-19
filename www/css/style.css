@@ -1,1 +1,37 @@
 /* Empty. Add your own CSS if you like */
+li{
+	list-style: none;
+}
+
+.patient-list{
+
+}
+
+.card{
+	
+    padding: 5px 20px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    background: #eee;
+}
+.card img.avatar{
+	border-radius: 50%;
+	height: 60px;
+	width:60px;
+}
+.card .card-action{
+	float:right;
+	background: #0B86CB;
+	color: #fff;
+	padding: 3px 5px;
+	border-radius:2px;
+	cursor: pointer;
+	margin-top: 30px;
+}
+.card .card-action:hover{
+	background: #68B0D9;
+	
+}
+.card .card-details{
+	margin-left: 65px;
+}

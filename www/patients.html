@@ -1,0 +1,18 @@
+
+<div>
+  <h2>Patient List</h2>
+<p>A list of all patients:</p>
+
+<ul class="patient-list">
+<div ng-if="patients.length == 0"><h1>Loading...</h1></div>
+  <li ng-repeat="pat in patients" class="card">
+    <div ng-click="diagnose(pat.id)"
+    class="card-action">Diagnose</div>
+    <!-- <a ui-sref="user"  class="button" style="background-color: rgb(244,32,67);" >Add New User</a -->
+    <img src="img/img_avatar5.png" class="avatar">
+    <span class="w3-xlarge"><b>{{pat.name}}</b></span><br>
+    <span class="card-details">{{pat.docname}}</span>
+  </li>
+
+</ul>
+</div>

@@ -3,9 +3,22 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ui.router','firebase','starter.controllers','starter.services'])
-.config(function($stateProvider, $urlRouterProvider) {
+angular.module('starter', ['ui.router','ui-notification','firebase','highcharts-ng','starter.controllers','starter.services','ngStorage'])
+ .config(function(NotificationProvider) {
+        NotificationProvider.setOptions({
+            delay: 10000,
+            startTop: 20,
+            startRight: 10,
+            verticalSpacing: 20,
+            horizontalSpacing: 20,
+            positionX: 'right',
+            positionY: 'up'
+        });
+    })
+.config(function($stateProvider, $urlRouterProvider,$locationProvider) {
     $urlRouterProvider.otherwise('/');
+    // $locationProvider.html5Mode(true);
+    // $locationProvider.hashPrefix("!");
   // Ionic uses AngularUI Router which uses the concept of stateses
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -13,8 +26,20 @@ angular.module('starter', ['ui.router','firebase','starter.controllers','starter
 
   $stateProvider
 
-  .state('home', {
+  .state('index', {
     url: '/',
+    cache:false,
+    views:{
+      "navbar":{
+        templateUrl: 'navbar.html',
+        controller:"navCtrl"
+        
+      }
+    }
+  })
+        
+     .state('index.home', {
+    url: 'home',
     cache:false,
     views:{
       "main@":{
@@ -22,28 +47,49 @@ angular.module('starter', ['ui.router','firebase','starter.controllers','starter
         controller: 'homeCtrl'
       }
     }
-        
       
     
   })
   .state('login', {
     url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'loginCtrl'
+    cache:false,
+    views:{
+      "main@":{
+       templateUrl: 'login.html',
+       controller: 'loginCtrl'  
+      }
+    }
+    
   })
 
-
-  .state('patients', {
-    url: '/patients',
+  .state('registration', {
+    url: '/registration',
     cache:false,
+    views:{
+      "main@":{
+       templateUrl: 'registration.html',
+       controller: 'registerCtrl'  
+      }
+    }
+    
+  })
+  .state('index.reports', {
+    url: 'reports',
+    cache:false,
+    views:{
+      "main@":{
 
-        templateUrl: 'patientmain.html'
-        // controller: 'patientdetailsCtrl'
+        templateUrl: 'reports.html',
+        controller: 'reportCtrl'
+      }
+    }
+        
       
     
   })
-  .state('patients.details', {
-    url: '/details/:id',
+
+  .state('index.patients.details', {
+    url: 'details/:id',
     cache:false,
     views:{
       "main@":{
@@ -56,8 +102,8 @@ angular.module('starter', ['ui.router','firebase','starter.controllers','starter
     
   })
 
-  .state('results', {
-    url: '/details/results/:id',
+  .state('index.results', {
+    url: 'details/results/:id',
     cache:false,
     views:{
       "main@":{
@@ -70,8 +116,8 @@ angular.module('starter', ['ui.router','firebase','starter.controllers','starter
     
   })
 
-   .state('user', {
-    url: '/user',
+   .state('index.user', {
+    url: 'user',
     cache:false,
     views:{
       "main@":{
@@ -85,8 +131,21 @@ angular.module('starter', ['ui.router','firebase','starter.controllers','starter
     
   })
 
-     .state('diagnosis', {
-    url: '/diagnosis/:id',
+     .state('index.patients', {
+    url: 'patients',
+    cache:false,
+    views:{
+      "main@":{
+
+        templateUrl: 'patients.html',
+        controller: 'patientsCtrl'
+      }
+    }
+      
+    
+  })
+    .state('index.diagnosis', {
+    url: 'diagnosis/:id',
     cache:false,
     views:{
       "main@":{
@@ -98,6 +157,46 @@ angular.module('starter', ['ui.router','firebase','starter.controllers','starter
       
     
   })
+      .state('index.labresults', {
+    url: 'results',
+    cache:false,
+    views:{
+      "main@":{
+
+        templateUrl: 'patientdetails.html',
+        controller: 'patientdetailsCtrl'
+      }
+    }
+      
+    
+  })
+      .state('index.report', {
+    url: 'reports',
+    cache:false,
+    views:{
+      "main@":{
+
+        templateUrl: 'results.html',
+        controller: 'patientdetailsCtrl'
+      }
+    }
+      
+    
+  })
+    .state('logout', {
+    url: '/logout',
+    cache:false,
+    views:{
+      "main@":{
+
+        templateUrl: 'login.html',
+        controller: 'logoutCtrl'
+      }
+    }
+      
+    
+  })
+
 
 
 
